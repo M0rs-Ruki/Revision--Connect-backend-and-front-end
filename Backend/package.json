@@ -1,20 +1,15 @@
 {
-  "name": "back-end",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "Revision time",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [
-    "Revision",
-    "backend"
-  ],
-  "author": "mors ruki",
+  "author": "Mors Ruki",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^5.1.0"
   }
 }

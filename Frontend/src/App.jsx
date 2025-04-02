@@ -1,39 +1,49 @@
-import { use, useState } from 'react'
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
 import { useEffect } from 'react'
 
 
-
 function App() {
-  const [jokes, setJokes] = useState([]);
-
+  const [jokes, setJokes] = useState([])
 
   useEffect(() => {
     axios.get('/api/jokes')
-      .then((res) => {
-        console.log("API Response:", res.data);
-        setJokes(Array.isArray(res.data) ? res.data : res.data.jokes || []);
+      .then(response => {
+        setJokes(response.data)
       })
-      .catch((err) => {
-        console.log("API Error:", err);
-      });
-  }, []);
+      .catch(error => {
+        console.log(error)
+      })
+  }, [])
 
-  
   return (
     <>
-      <h1>Mors is a nood coder</h1>
-      <p>JOKES: {jokes.length}</p>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Mors Ruki</h1>
+      <p className="read-the-docs">
+        mors is a nood programme 
+      </p>
+      <h2>Jokes:{jokes.length}</h2>
 
-    {Array.isArray(jokes) &&
-      jokes.map((joke, index) => (
-        <div key={joke.id || index}>
-          <h3>{joke.title}</h3>
-          <p>{joke.content}</p>
-        </div>
-      ))
-    }
+      {
+        jokes.map((joke, index) => (
+          <div key={jokes.id}>
+            <h3>{joke.title}</h3>
+            <p> {joke.content}</p>
+          </div>
+        ))
+      }
+
     </>
   )
 }

@@ -1,32 +1,29 @@
-import express from 'express'
+import express from 'express';
 
 const app = express()
 
-const port = process.env.PORT || 8080
-
 app.get('/', (req, res) => {
-    res.send(`Hello world `)
+    res.send("Mors is a nood coder")
 });
 
 app.get('/api/jokes', (req, res) => {
     const jokes = [
         {
-            id:1,
-            title: "A joke",
-            content: "This is a joke",
-        },
-        {
-            id:2,
-            title: "Another joke",
-            content: "This is another joke",
-        }
+            "id": 1,
+            "title": "Why did the programmer go broke?",
+            "content": "Because he used up all his cache!"
+          },
+          {
+            "id": 2,
+            "title": "Why do programmers prefer dark mode?",
+            "content": "Because the light attracts too many bugs!"
+          }
     ]
-    res.send(jokes)
-});
-
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    res.json(jokes)
 })
 
-// http://localhost:8080/
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server is running on port ${process.env.PORT || 3000}`);
+})
+
+export default app;
