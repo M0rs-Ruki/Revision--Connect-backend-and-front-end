@@ -1,10 +1,8 @@
-import express from 'express';
+import express from "express";
 
 const app = express()
 
-app.get('/', (req, res) => {
-    res.send("Mors is a nood coder")
-});
+const port = 8080;
 
 app.get('/api/jokes', (req, res) => {
     const jokes = [
@@ -19,11 +17,11 @@ app.get('/api/jokes', (req, res) => {
             "content": "Because the light attracts too many bugs!"
           }
     ]
-    res.json(jokes)
+    res.send(jokes)
 })
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server is running on port ${process.env.PORT || 3000}`);
-})
+app.listen(port, () => console.log(`The server is running on port ${port}`))
+
+// http://localhost:8080
 
 export default app;

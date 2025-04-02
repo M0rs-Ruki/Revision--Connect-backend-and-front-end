@@ -7,17 +7,19 @@ import { useEffect } from 'react'
 
 
 function App() {
-  const [jokes, setJokes] = useState([])
+  const [jokes , setJokes] = useState([])
+
 
   useEffect(() => {
     axios.get('/api/jokes')
-      .then(response => {
-        setJokes(response.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }, [])
+    .then(response => {
+      setJokes(response.data)
+    })
+    .catch(error => {
+      console.log(error);
+      
+    })
+  },[])
 
   return (
     <>
@@ -31,15 +33,15 @@ function App() {
       </div>
       <h1>Mors Ruki</h1>
       <p className="read-the-docs">
-        mors is a nood programme 
+        Mors is a nood coder lol !!!!!!!!1
       </p>
-      <h2>Jokes:{jokes.length}</h2>
+      <h3>{jokes.length}</h3>
 
       {
-        jokes.map((joke, index) => (
+        jokes.map((joke,index) => (
           <div key={jokes.id}>
             <h3>{joke.title}</h3>
-            <p> {joke.content}</p>
+            <p>{joke.content}</p>
           </div>
         ))
       }

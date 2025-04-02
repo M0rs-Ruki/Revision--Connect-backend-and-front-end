@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Mors Ruki",
+  "author": "mors ruki",
   "license": "ISC",
-  "description": "",
+  "description": "Revision part 2 ",
   "dependencies": {
     "express": "^5.1.0"
   }
